@@ -1,0 +1,14 @@
+{
+  "name": "docker",
+  "version": "1.0.0",
+  "description": "",
+  "main": "ecosytem.config.js",
+  "scripts": {
+    "postinstall": "npm run build",
+    "build": "npm run get-that",
+    "get-that": "node scripts/doid.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "OGAGA ADJARO",
+  "license": "ISC"
+}

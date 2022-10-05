@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+  user-service:
+    build:
+      context: ./
+      dockerfile: ./appDockerised/do/Dockerfile
+    ports:
+      - "8009:8009"
+    container_name: user-service
+    volumes:
+       - ./src:/usr/src/app/src
+  login-service:
+    build:
+      context: ./
+      dockerfile: ./appDockerised/get/Dockerfile
+    ports:
+      - "8001:8001"
+    container_name: login-service
+    volumes:
+       - ./login-api/src:/usr/src/app/src

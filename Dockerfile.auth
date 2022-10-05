@@ -1,0 +1,14 @@
+FROM keymetrics/pm2:latest-alpine
+COPY . .
+COPY package.json .
+COPY ecosystem.config.js src/
+COPY scripts/do.js src/
+RUN npm install --development
+RUN npm run build
+# Expose the listening port of your app
+EXPOSE 8000
+
+# Show current folder structure in logs
+RUN ls -al -R
+
+CMD [ "pm2-runtime", "start", "ecosystem.config.js" ]
